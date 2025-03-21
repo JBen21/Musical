@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 80%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.botao {
+    width: 200px;
+    height: 100px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background-color: #3e8e41;
+}
+
+.pontuacao {
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+.resposta {
+    width: 200px;
+    height: 40px;
+    font-size: 24px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.verificar {
+    width: 200px;
+    height: 40px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.verificar:hover {
+    background-color: #3e8e41;
+}
