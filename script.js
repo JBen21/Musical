@@ -1,3 +1,4 @@
+
 // Obter a imagem, a div de pontuação, o input de resposta e o botão de verificar
 const imagem = document.getElementById("imagem");
 const pontuacao = document.getElementById("pontuacao");
@@ -8,13 +9,12 @@ const rank = document.getElementById("rank");
 // Iniciar a pontuação
 let pontos = 0;
 
-// Array de imagens
+// Array de imagens com sons correspondentes
 const imagens = [
-    { src: "casa.jpg", nome: "Casa" },
-    { src: "carro.jpg", nome: "Carro" },
-    { src: "arvore.jpg", nome: "Árvore" },
-    // Adicione mais imagens aqui
-];
+    { src: "casa.jpg", nome: "Casa", som: "som-casa" },
+    { src: "carro.jpg", nome: "Carro", som: "som-carro" },
+    { src: "arvore.jpg", nome: "Árvore", som: "som-arvore" },
+];    
 
 // Variável para armazenar a imagem atual
 let imagemAtual;
@@ -35,6 +35,12 @@ nomeJogador = prompt("Digite seu nome:");
 function getRandomImagem() {
     const index = Math.floor(Math.random() * imagens.length);
     return imagens[index];
+}
+
+// Função para tocar o som correspondente à imagem
+function tocarSom(imagem) {
+    const som = document.getElementById(imagem.som);
+    som.play();
 }
 
 // Função para atualizar o rank de pontuação
@@ -88,6 +94,8 @@ verificar.addEventListener("click", () => {
     // Mudar a imagem automaticamente
     imagemAtual = getRandomImagem();
     imagem.src = imagemAtual.src;
+    // Tocar o som correspondente à imagem
+    tocarSom({ som: imagemAtual.som });
     resposta.value = "";
     // Atualizar o rank de pontuação
     atualizarRank();
