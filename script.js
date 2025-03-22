@@ -26,6 +26,10 @@ let erros = 0;
 // Variável para armazenar o número máximo de erros
 const maxErros = 3;
 
+// Solicitar o nome do jogador
+nomeJogador = prompt("Digite seu nome:");
+
+
 // Função para gerar uma cor aleatória
 function getRandomColor() {
     const index = Math.floor(Math.random() * cores.length);
@@ -92,4 +96,12 @@ verificar.addEventListener("click", () => {
     botao.style.backgroundColor = corAtual.hex;
     // Atualizar o rank de pontuação
     atualizarRank();
+});
+
+// Adicionar evento de clique ao botão de resetar rank
+const resetRankButton = document.getElementById("reset-rank");
+resetRankButton.addEventListener("click", () => {
+    localStorage.removeItem("rank");
+    rank.innerHTML = "";
+    alert("Rank de pontuação resetado!");
 });
