@@ -1,13 +1,12 @@
 
-// Obter a imagem, a div de pontuação, o input de resposta e o botão de verificar
+// Obter a imagem, a div de pontuação, o input de resposta o botão de start e o botão de verificar
 const imagem = document.getElementById("imagem");
 const pontuacao = document.getElementById("pontuacao");
 const resposta = document.getElementById("resposta");
 const verificar = document.getElementById("verificar");
 const rank = document.getElementById("rank");
-
-// Iniciar a pontuação
-let pontos = 0;
+const startButton = document.getElementById("start-button");
+const gameContainer = document.getElementById("game-container");
 
 // Array de imagens com sons correspondentes
 const imagens = [
@@ -15,6 +14,9 @@ const imagens = [
     { src: "carro.jpg", nome: "Carro", som: "som-carro" },
     { src: "arvore.jpg", nome: "Árvore", som: "som-arvore" },
 ];    
+
+// Iniciar a pontuação
+let pontos = 0;
 
 // Variável para armazenar a imagem atual
 let imagemAtual;
@@ -28,8 +30,25 @@ let erros = 0;
 // Variável para armazenar o número máximo de erros
 const maxErros = 3;
 
-// Solicitar o nome do jogador
-nomeJogador = prompt("Digite seu nome:");
+// Adicionar evento de clique ao botão de start
+startButton.addEventListener("click", () => {
+
+    // Solicitar o nome do jogador após clicar no botão de start
+    nomeJogador = prompt("Digite seu nome:");
+
+    gameContainer.style.display = "block";
+
+    // Iniciar o jogo após solicitar o nome do jogador
+    imagemAtual = getRandomImagem();
+    imagem.src = imagemAtual.src;
+
+    // Tocar o som correspondente à primeira imagem
+    const som = document.getElementById(imagemAtual.som);
+    som.play();
+    
+    // Esconder o botão de start após iniciar o jogo
+    startButton.style.display = "none";
+});
 
 // Função para gerar uma imagem aleatória
 function getRandomImagem() {

@@ -3,12 +3,38 @@ body {
     background-color: #f0f0f0;
 }
 
+.start-button {
+    width: 200px;
+    height: 60px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.start-button:hover {
+    background-color: #3e8e41;
+}
+
 .container {
     width: 80%;
     margin: 40px auto;
     text-align: center;
 }
 
+#game-container {
+    width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
 .botao {
     width: 200px;
     height: 100px;
@@ -55,4 +81,5 @@ body {
 
 .verificar:hover {
     background-color: #3e8e41;
+}
 }
