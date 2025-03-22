@@ -1,5 +1,5 @@
-// Obter o botão, a div de pontuação, o input de resposta e o botão de verificar
-const botao = document.getElementById("botao");
+// Obter a imagem, a div de pontuação, o input de resposta e o botão de verificar
+const imagem = document.getElementById("imagem");
 const pontuacao = document.getElementById("pontuacao");
 const resposta = document.getElementById("resposta");
 const verificar = document.getElementById("verificar");
@@ -8,14 +8,16 @@ const rank = document.getElementById("rank");
 // Iniciar a pontuação
 let pontos = 0;
 
-// Array de cores
-const cores = ["Vermelho", "Azul", "Verde", "Amarelo", "Rosa"];
+// Array de imagens
+const imagens = [
+    { src: "casa.jpg", nome: "Casa" },
+    { src: "carro.jpg", nome: "Carro" },
+    { src: "arvore.jpg", nome: "Árvore" },
+    // Adicione mais imagens aqui
+];
 
-// Array de cores em hexadecimal
-const coresHex = ["#FF0000", "#0000FF", "#00FF00", "#FFFF00", "#FF00FF"];
-
-// Variável para armazenar a cor atual
-let corAtual;
+// Variável para armazenar a imagem atual
+let imagemAtual;
 
 // Variável para armazenar o nome do jogador
 let nomeJogador;
@@ -29,11 +31,10 @@ const maxErros = 3;
 // Solicitar o nome do jogador
 nomeJogador = prompt("Digite seu nome:");
 
-
-// Função para gerar uma cor aleatória
-function getRandomColor() {
-    const index = Math.floor(Math.random() * cores.length);
-    return { nome: cores[index], hex: coresHex[index] };
+// Função para gerar uma imagem aleatória
+function getRandomImagem() {
+    const index = Math.floor(Math.random() * imagens.length);
+    return imagens[index];
 }
 
 // Função para atualizar o rank de pontuação
@@ -65,23 +66,16 @@ function atualizarRank() {
     });
 }
 
-// Adicionar evento de clique ao botão
-botao.addEventListener("click", () => {
-    corAtual = getRandomColor();
-    botao.style.backgroundColor = corAtual.hex;
-    resposta.value = "";
-});
-
 // Adicionar evento de clique ao botão de verificar
 verificar.addEventListener("click", () => {
     const respostaUsuario = resposta.value;
-    if (respostaUsuario.toLowerCase() === corAtual.nome.toLowerCase()) {
+    if (respostaUsuario.toLowerCase() === imagemAtual.nome.toLowerCase()) {
         pontos++;
         pontuacao.textContent = `Pontos: ${pontos}`;
         alert("Correta!");
     } else {
         erros++;
-        alert(`Errada! A cor certa é ${corAtual.nome}. Você tem ${maxErros - erros} chances restantes.`);
+        alert(`Errada! A imagem certa é ${imagemAtual.nome}. Você tem ${maxErros - erros} chances restantes.`);
         if (erros >= maxErros) {
             alert("Você excedeu o número máximo de erros! O jogo será reiniciado.");
             // Reiniciar o jogo
@@ -91,9 +85,10 @@ verificar.addEventListener("click", () => {
             nomeJogador = prompt("Digite seu nome:");
         }
     }
-    // Mudar a cor do botão automaticamente
-    corAtual = getRandomColor();
-    botao.style.backgroundColor = corAtual.hex;
+    // Mudar a imagem automaticamente
+    imagemAtual = getRandomImagem();
+    imagem.src = imagemAtual.src;
+    resposta.value = "";
     // Atualizar o rank de pontuação
     atualizarRank();
 });
@@ -105,3 +100,7 @@ resetRankButton.addEventListener("click", () => {
     rank.innerHTML = "";
     alert("Rank de pontuação resetado!");
 });
+
+// Iniciar o jogo com uma imagem aleatória
+imagemAtual = getRandomImagem();
+imagem.src = imagemAtual.src;
