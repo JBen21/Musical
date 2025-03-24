@@ -10,9 +10,20 @@ const gameContainer = document.getElementById("game-container");
 
 // Array de imagens com sons correspondentes
 const imagens = [
-    { src: "casa.jpg", nome: "Casa", som: "som-casa" },
-    { src: "carro.jpg", nome: "Carro", som: "som-carro" },
-    { src: "arvore.jpg", nome: "Árvore", som: "som-arvore" },
+    { src: "Clave_Fa.jpeg", nome: "Clave de Fa", som: "Clave_Fa" },
+    { src: "Do.jpeg", nome: "Do", som: "Do" },
+    { src: "Do_2.jpeg", nome: "Do", som: "Do_2" },
+    { src: "Re.jpeg", nome: "Re", som: "Re" },
+    { src: "Mi.jpeg", nome: "Mi", som: "Mi" },
+    { src: "Mi_2.jpeg", nome: "Mi", som: "Mi_2" },
+    { src: "Fa.jpeg", nome: "Fa", som: "Fa" },
+    { src: "Fa_2.jpeg", nome: "Fa", som: "Fa_2" },
+    { src: "Sol.jpeg", nome: "Sol", som: "Sol" },
+    { src: "Sol_2.jpeg", nome: "Sol", som: "Sol_2" },
+    { src: "La.jpeg", nome: "La", som: "La" },
+    { src: "La_2.jpeg", nome: "La", som: "La_2" },
+    { src: "Si.jpeg", nome: "Si", som: "Si" },
+    { src: "Si_2.jpeg", nome: "Si", som: "Si_2" },
 ];    
 
 // Iniciar a pontuação
