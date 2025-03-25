@@ -111,6 +111,11 @@ verificar.addEventListener("click", () => {
         alert("Correta!");
     } else {
         erros++;
+        pontos -= 2; // Penalidade por erro
+        if (pontos < 0) {
+            pontos = 0;
+        } 
+        pontuacao.textContent = `Pontos: ${pontos}`;   
         alert(`Errada! A imagem certa é ${imagemAtual.nome}. Você tem ${maxErros - erros} chances restantes.`);
         if (erros >= maxErros) {
             alert("Você excedeu o número máximo de erros! O jogo será reiniciado.");
